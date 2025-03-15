@@ -1,3 +1,3 @@
-# Codespace Spark Cluster: headnode
+# Codespace Spark Cluster
 
-Headnode for GitHub Codespace Spark cluster.
+GitHub Codespace Spark cluster.

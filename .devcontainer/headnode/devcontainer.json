@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "headnode",
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
+
+    // Add a SSH server to the container
+    "features": {
+         "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
+        }
+    },
+	
+    // Add a SSH server to the container
+    "customizations": {
+        "vscode": {
+        "settings": {"remote.autoForwardPorts": false}, // Don't autoforward ports
+            "extensions": [ // Block install of unncessary VScode extensions
+                "-dbaeumer.vscode-eslint",
+                "-ms-python.vscode-pylance",
+                "-ms-python.python",
+                "-ms-python.debugpy"
+            ]
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [8080],
+
+    // Label the Spark WebUI port
+    "portsAttributes": {
+        "8080": {
+            "label": "spark-webUI"
+        }
+    },
+
+    // Get spark and set it up when the container is created
+    "onCreateCommand": ".devcontainer/install_spark.sh && .devcontainer/install_gh.sh",
+	
+    // Update hostname and start Spark master, then leave htop running in a terminal
+    "postAttachCommand": ".devcontainer/start_headnode.sh && .devcontainer/start_worker.sh && htop"
+}

@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "worker",
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
+
+    // Set-up VSCode
+    "customizations": {
+        "vscode": {
+            "settings": {"remote.autoForwardPorts": false}, // Don't autoforward ports
+            "extensions": [ // Block install of unncessary VScode extensions
+                "-dbaeumer.vscode-eslint",
+                "-ms-python.vscode-pylance",
+                "-ms-python.python",
+                "-ms-python.debugpy"
+            ]
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [8080],
+
+    // Set name for forwared ports
+    "portsAttributes": {
+        "8080": {
+            "label": "spark-WebUI"
+        }
+    },
+
+    // Get Spark and the Github CLI when the container is created
+    "onCreateCommand": ".devcontainer/install_spark.sh && .devcontainer/install_gh.sh",
+
+    // Update headnode hostname and start Spark worker, leave htop running in a terminal
+    "postAttachCommand": ".devcontainer/start_worker.sh && htop"
+}
