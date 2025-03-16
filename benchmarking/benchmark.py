@@ -12,6 +12,7 @@ Dependent variables:
 See results.ipynb
 '''
 
+import functions.xgboost as xgboost
 import functions.sklearn as sklearn
 from functions.data import prep_data
 
@@ -28,7 +29,9 @@ if __name__ == '__main__':
         'Search time (sec.)':[]
     }
 
+    # Run the benchmarks
     results=sklearn.run(results)
+    results=xgboost.run(results)
 
     print(results)
 

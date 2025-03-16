@@ -11,6 +11,11 @@ import configuration as config
 def run(results:dict) -> None:
     '''Runs Scikit-learn hyperparameter optimization benchmark.'''
 
+    hyperparameters={
+        'learning_rate': config.HYPERPARAMETERS['learning_rate'],
+        'subsample': config.HYPERPARAMETERS['subsample']
+    }
+
     training_df=pd.read_parquet(config.TRAINING_DATA)
 
     for i in range(config.REPLICATES):
@@ -22,11 +27,6 @@ def run(results:dict) -> None:
             max_depth=config.MAX_DEPTH,
             n_estimators=config.BOOSTING_ROUNDS
         )
-
-        hyperparameters={
-            'learning_rate': config.HYPERPARAMETERS['learning_rate'],
-            'subsample': config.HYPERPARAMETERS['subsample']
-        }
 
         search=GridSearchCV(
             model,
