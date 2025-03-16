@@ -12,6 +12,12 @@ Dependent variables:
 See results.ipynb
 '''
 
+from functions.data import prep_data
+
 
 if __name__ == '__main__':
-    pass
+    
+
+    # Get the data ready
+    prep_data()
+
