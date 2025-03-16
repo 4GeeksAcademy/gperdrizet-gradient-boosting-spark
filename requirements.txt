@@ -1,3 +1,13 @@
+# PySpark specific libraries
+#---------------------------
+pyspark==3.5.5
+pyarrow==19.0.1
+grpcio==1.71.0
+grpcio-status==1.71.0
+google-api-python-client==2.164.0
+
+# Other project boilerplate
+#---------------------------
 numpy==2.2.3
 pandas==2.2.3
 scikit-learn==1.6.1

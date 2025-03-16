@@ -25,18 +25,21 @@
     },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [8080],
+    "forwardPorts": [8080, 8081],
 
     // Label the Spark WebUI port
     "portsAttributes": {
         "8080": {
+            "label": "spark-headnode-webUI"
+        },
+        "8081": {
             "label": "spark-webUI"
         }
     },
 
     // Get spark and set it up when the container is created
-    "onCreateCommand": ".devcontainer/install_spark.sh && .devcontainer/install_gh.sh",
+    "onCreateCommand": ".devcontainer/install_spark.sh",
 	
     // Update hostname and start Spark master, then leave htop running in a terminal
-    "postAttachCommand": ".devcontainer/start_headnode.sh && .devcontainer/start_worker.sh && htop"
+    "postAttachCommand": ".devcontainer/start_headnode.sh && htop"
 }
