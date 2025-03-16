@@ -11,11 +11,14 @@
         }
     },
 	
-    // Add a SSH server to the container
+    // Set-up VSCode
     "customizations": {
         "vscode": {
-        "settings": {"remote.autoForwardPorts": false}, // Don't autoforward ports
-            "extensions": [ // Block install of unncessary VScode extensions
+        "settings": {
+            "remote.autoForwardPorts": false, // Don't auto-forward ports
+            "jupyter.kernels.excludePythonEnvironments": ["/usr/bin/python3"] // Force VSCode to use python in /usr/local/bin
+        },
+            "extensions": [ // Block install of unnecessary VScode extensions
                 "-dbaeumer.vscode-eslint",
                 "-ms-python.vscode-pylance",
                 "-ms-python.python",
