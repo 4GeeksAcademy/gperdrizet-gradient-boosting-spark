@@ -8,7 +8,7 @@ google-api-python-client==2.164.0
 
 # Other project boilerplate
 #---------------------------
-numpy==2.2.3
+numpy==1.26.4
 pandas==2.2.3
 scikit-learn==1.6.1
 scipy==1.15.2
