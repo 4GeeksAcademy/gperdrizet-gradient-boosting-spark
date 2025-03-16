@@ -12,6 +12,7 @@ Dependent variables:
 See results.ipynb
 '''
 
+import functions.sklearn as sklearn
 from functions.data import prep_data
 
 
@@ -20,4 +21,14 @@ if __name__ == '__main__':
 
     # Get the data ready
     prep_data()
+
+    # Dictionary to hold timing results
+    results={
+        'Library':[],
+        'Search time (sec.)':[]
+    }
+
+    results=sklearn.run(results)
+
+    print(results)
 

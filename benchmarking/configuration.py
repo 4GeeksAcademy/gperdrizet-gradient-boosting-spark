@@ -15,9 +15,12 @@ BENCHMARK_RESULTS='./data/benchmark_results.parquet'
 # Hyperparameter search setup#####
 ##################################
 
+REPLICATES=3
 CROSS_VAL_FOLDS=3
+MAX_DEPTH=5
+BOOSTING_ROUNDS=50
 
 HYPERPARAMETERS={
-    'max_depth_range':[2,20],
-    'subsample_range':[0.4,0.9]
+    'learning_rate':[0.05, 0.1, 0.2],
+    'subsample':[0.4, 0.5, 0.6, 0.7]
 }
