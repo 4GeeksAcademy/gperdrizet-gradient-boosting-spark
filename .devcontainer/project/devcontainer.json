@@ -31,7 +31,7 @@
     },
 
     // Set-up Python stuff and Spark
-    "onCreateCommand": ".devcontainer/install_spark.sh && .devcontainer/install_gh.sh && .devcontainer/setup_project.sh",
+    "onCreateCommand": ".devcontainer/install_spark.sh && .devcontainer/install_gh.sh && .devcontainer/setup_project.sh && mkdir data",
 	
     // Start Spark whenever we attach to the container, and leave htop running in a terminal
     "postAttachCommand": ".devcontainer/start_worker.sh && htop"

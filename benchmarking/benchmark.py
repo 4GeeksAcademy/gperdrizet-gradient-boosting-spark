@@ -8,8 +8,6 @@ Independent variables:
 Dependent variables:
 
 1. Hyperparameter search rate (parameter sets/minute)
-
-See results.ipynb
 '''
 
 import functions.xgboost as xgboost
